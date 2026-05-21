@@ -61,6 +61,48 @@
         <p>♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥</p>
 
     </main>
+<script>
 
+function crearCorazon() {
+
+    const corazon = document.createElement("div");
+
+    corazon.innerHTML = "❤️";
+
+    corazon.style.position = "fixed";
+    corazon.style.left = Math.random() * 100 + "vw";
+    corazon.style.top = "-20px";
+    corazon.style.fontSize = "30px";
+    corazon.style.animation = "caer 5s linear";
+
+    document.body.appendChild(corazon);
+
+    setTimeout(() => {
+        corazon.remove();
+    }, 5000);
+
+}
+
+setInterval(crearCorazon, 300);
+
+</script>
+
+<style>
+
+@keyframes caer {
+
+    0%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100%{
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+
+}
+
+</style>
 </body>
 </html>
