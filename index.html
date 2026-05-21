@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Priscila ❤️</title>
 
     <style>
+
         body{
             background-color: pink;
             text-align: center;
@@ -30,13 +32,46 @@
             margin: auto;
             box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
         }
+
         img{
             width: 90%;
             max-width: 300px;
             border-radius: 20px;
             margin-top: 20px;
         }
+
+        button{
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 18px;
+            border-radius: 15px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover{
+            transform: scale(1.1);
+        }
+
+        .corazon{
+            position: fixed;
+            top: -10px;
+            color: red;
+            font-size: 30px;
+            animation: caer 5s linear forwards;
+        }
+
+        @keyframes caer{
+            to{
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
     </style>
+
 </head>
 
 <body>
@@ -48,6 +83,7 @@
         Gracias por estar en esta vida.
         Te quiero muchísimo y te amaré siempre.
     </h2>
+
     <img src="foto1.jpeg" alt="Mi amor">
 
     <h3>
@@ -62,66 +98,61 @@
         </p>
 
         <p>Mi lomito saltado ❤️</p>
+
         <p>Mi todo ❤️</p>
+
+        <button onclick="mostrarMensaje()">
+            Presióname ❤️
+        </button>
+
+        <p id="mensaje" style="display:none; font-size:20px; color:red;">
+            Te amo Priscila ♥
+        </p>
 
         <p>♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥</p>
 
     </main>
 
-<style>
+    <audio id="musica" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
 
-.corazon{
-    position: fixed;
-    top: -10px;
-    color: red;
-    font-size: 30px;
-    animation: caer 5s linear forwards;
-}
+    <script>
 
-@keyframes caer{
-    to{
-        transform: translateY(100vh);
-        opacity: 0;
-    }
-}
+        document.addEventListener("click", () => {
 
-</style>
+            document.getElementById("musica").play();
 
-<script>
+        }, { once: true });
 
-function crearCorazon(){
+        function crearCorazon(){
 
-    const corazon = document.createElement("div");
+            const corazon = document.createElement("div");
 
-    corazon.classList.add("corazon");
+            corazon.classList.add("corazon");
 
-    corazon.innerHTML = "❤️";
+            corazon.innerHTML = "❤️";
 
-    corazon.style.left = Math.random() * window.innerWidth + "px";
+            corazon.style.left = Math.random() * window.innerWidth + "px";
 
-    document.body.appendChild(corazon);
+            document.body.appendChild(corazon);
 
-    setTimeout(() => {
-        corazon.remove();
-    }, 5000);
+            setTimeout(() => {
+                corazon.remove();
+            }, 5000);
 
-}
+        }
 
-setInterval(crearCorazon, 300);
+        setInterval(crearCorazon, 300);
 
-</script>
-<audio id="musica" loop>
-    <source src="musica.mp3" type="audio/mpeg">
-</audio>
+        function mostrarMensaje(){
 
-<script>
+            document.getElementById("mensaje").style.display = "block";
 
-document.addEventListener("click", () => {
+        }
 
-    document.getElementById("musica").play();
+    </script>
 
-}, { once: true });
-
-</script>
 </body>
+
 </html>
